@@ -11,4 +11,8 @@ mongodb_pwd = config['mongodb']['db_pwd']
 
 uri = f'''mongodb+srv://{mongodb_user}:{mongodb_pwd}@{mongodb_cluster}.opwjush.mongodb.net/?retryWrites=true&w=majority&appName={mongodb_cluster}'''
 
-conn = MongoClient(uri)
+client = MongoClient(uri)
+
+db = client.sample_mflix
+
+collection_users = db["users"]
